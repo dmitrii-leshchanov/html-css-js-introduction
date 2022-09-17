@@ -1,0 +1,54 @@
+    html, * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .logo  {
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 60px;
+    }
+    .main-class {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .details-container {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+    .details-image {
+        width: 400px;
+    }
+    .details-title {
+        display: block;
+        text-align: center;
+        font-size: 2.6em;
+        margin-top: 10px;
+    }
+    .thumbnails-list {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 720px;
+    }
+    .thumbnails-item {
+        margin: 20px 20px;
+    }
+    .thumbnails-image {
+        width: 200px;
+        height: 100px;
+    }
+    .thumbnails-title {
+        display: block;
+        text-align: center;
+    }
+    .thumbnails-anchor {
+       color: #000;
+        text-decoration: none;
+    }
+
+    .thumbnails-anchor:hover {
+        color: turquoise;
+    }
