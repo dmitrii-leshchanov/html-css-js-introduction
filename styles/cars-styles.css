@@ -1,54 +1,65 @@
-    html, * {
-        margin: 0;
-        padding: 0;
-    }
-    
-    .logo  {
-    font-size: 3em;
-    text-align: center;
-    margin-bottom: 60px;
-    }
-    .main-class {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .details-container {
-        text-align: center;
-        margin-bottom: 60px;
-    }
-    .details-image {
-        width: 400px;
-    }
-    .details-title {
-        display: block;
-        text-align: center;
-        font-size: 2.6em;
-        margin-top: 10px;
-    }
-    .thumbnails-list {
-        list-style: none;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 720px;
-    }
-    .thumbnails-item {
-        margin: 20px 20px;
-    }
-    .thumbnails-image {
-        width: 200px;
-        height: 100px;
-    }
-    .thumbnails-title {
-        display: block;
-        text-align: center;
-    }
-    .thumbnails-anchor {
-       color: #000;
-        text-decoration: none;
-    }
-
-    .thumbnails-anchor:hover {
-        color: turquoise;
-    }
+body {
+    display: flex; 
+    flex-direction: column;
+    background-color: azure;
+ }
+ .logo  {
+ font-size: 2em;
+ background-color: bisque;
+ display: block;
+ text-align: center;
+ 
+ }
+ .main-class {
+ 
+ }
+ .details-container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     margin-top: 2.5vh;
+ 
+ }
+ .details-image {
+     width: 70vw;
+     height: 60vw;
+     border-radius: 25%;
+ }
+ .details-title {
+ display: block;
+ 
+ }
+ .thumbnails-list {
+ list-style: none;
+ display:flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+ max-height: 25vh;
+ overflow-y: auto;
+ justify-content: space-around;
+ padding-left: 0;
+ overflow-y: hidden;
+ }
+ .thumbnails-item {
+ width: 20vw;
+ height: 20vw;
+ margin-top: 2.5vh;
+ border: solid 1px black;
+display: block;
+border-radius: 25%;
+overflow: hidden;
+}
+ .thumbnails-image {
+     width: 20vw;
+     height: 15vw;
+     display: block;
+ }
+ .thumbnails-title {
+     display: block; 
+     text-align: center;
+     height: 5vw;
+     background-color: beige;
+ }
+ .thumbnails-anchor {
+    text-decoration: none;
+ }
