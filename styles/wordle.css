@@ -1,0 +1,58 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.word-guess {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(51, 50, 50);
+    padding: 0 2vw;
+}
+
+.letter-guess {
+    font-size: 1.5em;
+    margin-left: 2vw;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.guess-encounter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.number-encounter {
+    font-size: 2em;
+    color: black;
+}
+
+.btn {
+    padding: 5px;
+    font-size: 1.5em;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+} 
+
+.btn-hide {
+    display: none;
+}
+
+.btn-show {
+    display: block;
+}
