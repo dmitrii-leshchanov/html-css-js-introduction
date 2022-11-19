@@ -1,41 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/wordle.css">
     <title>Document</title>
+    <link rel="stylesheet" href="styles/wordle.css">
 </head>
 <body>
-
-    <input class="input" type="text" onchange="onChange(event)">
+    <input class="input" type="text" maxlength="1" onchange="onChange(event)">
+    <section class="wrong-letter"></section>
+    <section class="question-guess"></section>
     <section class="word-guess">
-        <div class="letter-guess">
-
-        </div>
-        <div class="letter-guess">
-            
-        </div>
-        <div class="letter-guess">
-            
-        </div>
-        <div class="letter-guess">
-            
-        </div>
-        <div class="letter-guess">
-            
-        </div>
+        
     </section>
-    
-    <section class="guess-encounter">
-        <div class="number-encounter">
-            Triels left: 6
-        </div>
-        <button class="btn btn-hide">Try again?</button>
-    </section>
-    
-    <script src="src/wordle.js"></script>
-    
+    <p class="guess-trials"></p>
+    <p class="game-over-message"></p>
+    <button id="play-again" onclick="startGame()">Play Again</button>
+   <script src="src/wordle1.js"></script> 
 </body>
 </html>

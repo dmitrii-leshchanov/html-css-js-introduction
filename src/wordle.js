@@ -1,54 +1,76 @@
-const word = "pappy";
-const N_LETTERS = word.length;
+const words = ["string", "beach", "apple", "reactpp", "bus", "dress"];
+const questions = ["JavaScript data type", "Place with sand and water", "Fruit that can be green, yellow, red", "Modern JS Framework", "A kind of transport", "A kind of clothes"];
+let word;
+const N_LETTERS = 5;
+const sectionElement = document.querySelector(".word-guess")
+sectionElement.innerHTML = getDivsElements();
 const letterElements = document.querySelectorAll(".letter-guess");
-const encounter = document.querySelector(".number-encounter");
-const btn = document.querySelector(".btn");
-const input = document.querySelector(".input");
+const trialsElement = document.querySelector(".guess-trials");
+const gameOverElement = document.querySelector(".game-over-message");
+const playAgainElement = document.getElementById("play-again");
 
-let i = 6;
-
+let flGameOver = false;
+const INITIAL_TRIALS = 6;
+let trials = INITIAL_TRIALS;
+function getDivsElements() {
+    let index = Math.floor(Math.random() * words.length);
+   
+    let wordField = words[index];
+    let wordFieldAr = Array.from(wordField);
+    let res = wordFieldAr.map(letter => `<div class="letter-guess">${letter}</div>`);
+    let question = `<div class="question-guess">${questions[index]}</div>`;
+    return res.join('');
+}
+function showTrialsMessage(trials) {
+        trialsElement.innerHTML = 
+        `remained ${trials} guess trials`;
+}
+function startGame() {
+    letterElements[2].style.background="white"
+}
 function onChange(event) {
     const wordGuess = event.target.value;
-    i--;
-    encounter.innerHTML = `Trials left: ${i}`;
-    if(i >= 0 && wordGuess !== word) { 
-        if(wordGuess.length != N_LETTERS) {
-            alert(`A word should contain ${N_LETTERS} letters`)
-        } else {
-            const wordAr = Array.from(wordGuess);
-            wordAr.forEach((l, i) => letterElements[i].innerHTML = l);
-            const colors = wordAr.map((l, i) => {
-                let index = word.indexOf(l);
-                let res = 'red';
-                if(index > -1) {
-                    if(index == i || wordAr[i] == word[i]) {
-                        res = 'green';
-                    } else {
-                        res = 'yellow';
-                    }
-                }
-                return res;
-            });
-            colors.forEach((c, i) => letterElements[i].style.color = c);
-        }
-    } else if (wordGuess === word && i >= 0) {
-        encounter.style.color = 'green';
-        encounter.innerHTML = 'Congratulations - you have guessed a word!';
-        input.disabled = true;
-        btn.classList.remove('btn-hide');
-        btn.classList.add('btn-show');
-        btn.innerHTML = 'Want more?'
-        btn.addEventListener('click', function() {
-            window.location.reload();
-        })
-    }  else if (i < 0) {
-        encounter.style.color = 'red';
-        encounter.innerHTML = 'Sorry - your guess trials have ended up!';
-        input.disabled = true;
-        btn.classList.remove('btn-hide');
-        btn.classList.add('btn-show');
-        btn.addEventListener('click', function() {
-            window.location.reload();
-        })
+    
+    if (flGameOver) {
+        alert("game is over");
+        return;
     }
+    trials--;
+    showTrialsMessage(trials);
+     
+    if (wordGuess.length != N_LETTERS) {
+        alert(`A word should contain ${N_LETTERS} letters`)
+    } else {
+        const wordAr = Array.from(wordGuess);
+        wordAr.forEach((l, i) => letterElements[i].innerHTML = l);
+        const colors = wordAr.map((letter, i) => {
+            let index = word.indexOf(letter);
+            let res = 'red';
+            if (index  > -1) {
+                res = letter == word[i] ? 'green' : 'yellow'
+            }
+            return res;
+        })
+        colors.forEach((c, i) =>
+         letterElements[i].style.color=c)
+    }
+    const res = wordGuess == word;
+    if (trials == 0 || res) {
+        endGame(res);
+    }
+    
 }
+function endGame(isSuccess) {
+    if (isSuccess) {
+        gameOverElement.innerHTML =  "Congratulations you are winner";
+        gameOverElement.style.color = "green"
+    } else {
+        gameOverElement.innerHTML =  "Sorry you are loser";
+        gameOverElement.style.color = "red"
+    }
+   
+   playAgainElement.style.display='block';
+   trialsElement.innerHTML = '';
+   flGameOver = true;
+}
+startGame()
