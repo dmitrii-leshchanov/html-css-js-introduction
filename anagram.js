@@ -29,5 +29,10 @@ function isAnagram(str1, str2) {
 }
 
 const word = "little";
-const result = isAnagram(word, "chop");
-console.log(result);
+const result = isAnagram(word, "litetl");
+
+if(result == true) {
+    console.log(`This is a anagram`)
+} else {
+    console.log(`This is not an anagram`)
+}
