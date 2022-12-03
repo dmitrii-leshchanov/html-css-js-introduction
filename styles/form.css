@@ -20,3 +20,8 @@
     justify-content: space-around;
     margin-top: 10vh;
 }
+
+.error {
+    margin-top: 5vh;
+    color: red;
+}

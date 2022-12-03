@@ -1,5 +1,13 @@
 const inputElements = document.querySelectorAll(".form-class [name]");
-const labelElements = document.querySelectorAll("[for]");
+const errorElement = document.querySelector(".error");
+
+const minSalary = 1000;
+const maxSalary = 40000;
+const timeout = 5000;
+const minYear = 1950;
+const thisYear = new Date().getFullYear();
+
+let timerId = -1;
 function onSubmit(event) {
     event.preventDefault();
     const employee = Array.from(inputElements).reduce(
@@ -12,26 +20,35 @@ function onSubmit(event) {
 }
 function onChange(event) {
     if (event.target.name == "salary") {
-        if(+event.target.value < 1000 || +event.target.value > 40000){
-            event.target.value=''
-            labelElements[1].hidden = false;
-            labelElements[1].style.color = 'red';
-            setTimeout(() => {
-                labelElements[1].hidden = true;
-            }, 5000);  
-        }
+        salaryValidation(event);
     }
 
     if (event.target.name == "birthDate") {
-        const birthArr = event.target.value.split("-");
-        const thisYear = new Date().getFullYear();
-        if(birthArr[0] < 1950 || birthArr[0] > thisYear) {
-            event.target.value = '';
-            labelElements[0].hidden = false;
-            labelElements[0].style.color = 'red';
-            setTimeout(() => {
-                labelElements[0].hidden = true;
-            }, 5000);
-        }
+        birthDateValidation(event);
     }
+}
+
+function salaryValidation(event) {
+    const salary = +event.target.value;
+    if(salary < minSalary || salary > maxSalary) {
+        errorMessage(event, 
+            `Salary should be in a range from ${minSalary} NIS to ${maxSalary} NIS. Salary = ${salary} NIS`);
+    }
+}
+
+function birthDateValidation(event) {
+    const birthDateArr = (event.target.value).split("-");
+    const birthYear = +birthDateArr[0];
+    if(birthYear < minYear || birthYear > thisYear) {
+        errorMessage(event, 
+            `Birth year can't be less than ${minYear} and more than ${thisYear}. Selected year = ${birthYear}`);
+    }
+}
+
+function errorMessage(event, message) {
+    event.target.value = '';
+    errorElement.innerHTML = message; 
+    timerId = setTimeout(() => {
+        errorElement.innerHTML = '';
+    }, timeout)
 }

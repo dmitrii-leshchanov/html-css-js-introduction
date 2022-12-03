@@ -17,7 +17,6 @@
         </div>
         <div class="date-label">
             <label>Enter birthdate</label>
-            <label hidden for="birthDate">Birth year cant be less than 1950 year and more than 2022</label>
             <input type="date" name="birthDate" onchange="onChange(event)" required placeholder="birthdate">
         </div>
 
@@ -31,7 +30,6 @@
                 <option value="Management">Management</option>
                 <option value="Audit">Audit</option>
             </select>
-            <label hidden for="salary">Salary should be in a range from 1000 to 40000</label>
             <input type="number" name="salary" placeholder="Enter salary"
              onchange="onChange(event)" required>
         </div>
@@ -39,6 +37,7 @@
             <button type="submit">Submit</button>
             <button type="reset">Reset</button>
         </div>
+        <label class="error"></label>
 
 
 
