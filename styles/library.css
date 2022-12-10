@@ -1,0 +1,90 @@
+body {
+    background-color: rgb(252, 239, 215);
+}
+
+.button-menu {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-menu {
+    background-color: rgb(231, 248, 243);
+    border: 1px solid #123422;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.form-title {
+    display: flex;
+    justify-content: center;
+    padding: 3vh 0;
+    font-size: 1.5em;
+}
+
+.form-body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.date-input label {
+    margin-right: 1vw;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5vw;
+}
+
+.buttons button {
+    background-color: rgb(231, 248, 243);
+    border: 1px solid #123422;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+#author-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.two-inputs {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.active {
+    background-color: blueviolet;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.books-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.books-item {
+    display: flex;
+}
+
+.books-item-container {
+    margin-left: 2vw;
+    margin-top: 2vw;
+    background-color: rgb(135, 135, 228);
+    border-radius: 10px;
+}
+
+.books-item-paragraph {
+    background-color: aliceblue;
+}
