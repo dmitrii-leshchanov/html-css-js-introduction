@@ -21,8 +21,8 @@
 
         <form id="book-form" onsubmit="onSubmitBookForm(event)" class="books-form-class">
             <div class="form-body">
-                <input type="text" onsubmit="onSubmitBookForm(event)" name="title" required placeholder="Enter book's title">
-                <input type="text" onsubmit="onSubmitBookForm(event)" name="author" required placeholder="Enter author's name">
+                <input type="text" name="title" required placeholder="Enter book's title">
+                <input type="text" name="author" required placeholder="Enter author's name">
                 <select name="genre" required>
                     <option value hidden selected disabled>
                         --Select Genre--
@@ -37,9 +37,9 @@
                 </select>
                 <div class="date-input">
                     <label>Select publishing date</label>
-                    <input type="date" name="publishingDate" required onchange="onChangeBookForm(event)">
+                    <input id="date-input" type="date" name="publishingDate" required onchange="onChangeBookForm(event)">
                 </div>
-                <input type="number" name="pages" required onchange="onChangeBookForm(event)" placeholder="Enter number of pages">
+                <input id="pages-input" type="number" name="pages" required onchange="onChangeBookForm(event)" placeholder="Enter number of pages">
             </div>
             <p id="pages_error" class="error"></p>
             <p id="date_error" class="error"></p>
