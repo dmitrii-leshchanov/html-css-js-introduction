@@ -71,12 +71,14 @@ body {
 .books-list {
     display: flex;
     flex-direction: row;
-    overflow-x: scroll;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+    max-height: 50vh;
 }
 
 .books-item {
     display: flex;
-    min-width: 20vw;
+    min-width: 15vw;
 }
 
 .books-item-container {
