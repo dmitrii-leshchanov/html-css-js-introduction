@@ -7,7 +7,7 @@ const authorFormInputElemets = document.querySelectorAll(".author-form-class [na
 
 const MIN_PAGES = 50;
 const MAX_PAGES = 2000;
-const MIN_YEAR = 1980;
+const MIN_YEAR = new Date('1980-01-01');
 
 
 

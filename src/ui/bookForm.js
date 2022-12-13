@@ -50,7 +50,7 @@ export class BookForm {
     }
 
     validatePublishingDate(element) {
-        const value = +element.value.slice(0,4);
+        const value = new Date(element.value);
         if(value < this.#minYear || value > this.#maxYear) {
             const message = value < this.#minYear ? `year should be ${this.#minYear} or greater` : `year must be ${this.#maxYear} or less`;
             showErrorMessage(element, message, this.#dateErrorElement);
@@ -67,5 +67,5 @@ export class BookForm {
 }
 
 function getMaxYear() {
-    return new Date().getFullYear();
+    return new Date();
 }
