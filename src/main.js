@@ -1,19 +1,18 @@
 import { Library } from "./data/library.js";
-const booksFormInputElements = document.querySelectorAll(".books-form-class [name]");
+import { showErrorMessage } from "./ui/errormessage.js";
+import { BookForm } from "./ui/bookform.js";
+
+
 const authorFormInputElemets = document.querySelectorAll(".author-form-class [name]")
 
-const minPages = 50;
-const maxPages = 2000;
-const minYear = 1980;
-const maxYear = getMaxYear();
-const timeOut = 5000;
-const errorClass = "error";
+const MIN_PAGES = 50;
+const MAX_PAGES = 2000;
+const MIN_YEAR = 1980;
+
 
 
 const sectionsElement = document.querySelectorAll("section");
 const buttonsMenuElement = document.querySelectorAll(".buttons-menu *");
-const dateErrorElement = document.querySelector("#date_error");
-const pagesErrorElement = document.getElementById("pages_error");
 const pagesFormErrorElement = document.querySelector("#pages_form_error");
 const booksListElement = document.querySelector("#books-all");
 const booksPagesListElement = document.querySelector("#books-bypages-list");
@@ -22,56 +21,8 @@ const booksAuthorListElement = document.querySelector("#books-author");
 
 const library = new Library;
 
-
-function getMaxYear() {
-    return new Date().getFullYear();
-}
-
-
-function onSubmitBookForm(event) {
-    event.preventDefault();
-    const book = Array.from(booksFormInputElements).reduce(
-        (res, cur) => {
-            res[cur.name] = cur.value;
-            return res;
-        }, {}
-    )
-    console.log(book);
-    library.addBook(book);
-}
-
-function onChangeBookForm(event) {
-    if(event.target.name == "pages") {
-        validatePages(event.target);
-    } else if (event.target.name == "publishingDate") {
-        validatePublishingDate(event.target);
-    }
-}
-
-function validatePages(element) {
-    const value = +element.value;
-    if(value < minPages || value > maxPages) {
-        const message = value < minPages ? `number of pages should be ${minPages} or greater` : `number of pages can't be more than ${maxPages}`;
-        showErrorMessage(element, message, pagesErrorElement);
-    }
-}
-
-function validatePublishingDate(element) {
-    const value = +element.value.slice(0,4);
-    if(value < minYear || value > maxYear) {
-        const message = value < minYear ? `year should be ${minYear} or greater` : `year must be ${maxYear} or less`;
-        showErrorMessage(element, message, dateErrorElement);
-    }
-}
-
-function showErrorMessage(element, message, errorElement) {
-    errorElement.innerHTML = message;
-    setTimeout(() => {
-        element.classList.remove(errorClass);
-        element.value = '';
-        errorElement.innerHTML = '';
-    }, timeOut); 
-}
+const bookForm = new BookForm ({idForm: "book-form", idDateInput: "date-input", idPagesInput: "pages-input", idDateError: "date_error", idPagesError: "pages-error", minYear: MIN_YEAR, minPages: MIN_PAGES, maxPages: MAX_PAGES})
+bookForm.addSubmitHandler((book) => library.addBook(book));
 
 
 //-----------------------------------------------
@@ -133,8 +84,6 @@ function onSubmitAuthor(event) {
 
 
 
-window.onSubmitBookForm = onSubmitBookForm;
-window.onChangeBookForm = onChangeBookForm;
 window.showSection = showSection;
 window.onChangePagesTo = onChangePagesTo;
 window.onChangePagesFrom = onChangePagesFrom;

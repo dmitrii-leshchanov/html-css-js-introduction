@@ -19,7 +19,7 @@
     <section id="add-book">
         <header class="form-title">Add a book</header>
 
-        <form id="book-form" onsubmit="onSubmitBookForm(event)" class="books-form-class">
+        <form id="book-form" class="books-form-class">
             <div class="form-body">
                 <input type="text" name="title" required placeholder="Enter book's title">
                 <input type="text" name="author" required placeholder="Enter author's name">
@@ -37,9 +37,9 @@
                 </select>
                 <div class="date-input">
                     <label>Select publishing date</label>
-                    <input id="date-input" type="date" name="publishingDate" required onchange="onChangeBookForm(event)">
+                    <input id="date-input" type="date" name="publishingDate" required>
                 </div>
-                <input id="pages-input" type="number" name="pages" required onchange="onChangeBookForm(event)" placeholder="Enter number of pages">
+                <input id="pages-input" type="number" name="pages" required  placeholder="Enter number of pages">
             </div>
             <p id="pages_error" class="error"></p>
             <p id="date_error" class="error"></p>
