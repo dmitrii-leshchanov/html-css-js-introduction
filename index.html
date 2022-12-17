@@ -60,8 +60,8 @@
 
     <section id="show-books-by-author" hidden>
         <header class="form-title">Search a book by author</header>
-        <form id="author-form" class="author-form-class" onsubmit="onSubmitAuthor(event)">
-                <input type="text" name="authorName" placeholder="Enter author's name"  required>
+        <form id="author-form" class="author-form-class">
+                <input id="author-input" type="text" name="authorName" placeholder="Enter author's name"  required>
             <div class="buttons">
                 <button type="submit">Search</button>
             </div>
@@ -74,11 +74,10 @@
 
     <section id="show-books-by-pages" hidden>
         <header class="form-title">Search a book by pages</header>
-        <form id="pages-form" class="form-class" onsubmit="onSubmitPages(event)">
-            <p id="pages_form_error" class="error"></p>
+        <form id="pages-form" class="form-class">
             <div class="two-inputs">
-                <input type="number" name="pagesFrom" placeholder="Enter pages 'From'" onchange="onChangePagesFrom(event)" required>
-                <input type="number" name="pagesTo" placeholder="Enter pages 'To'" onchange="onChangePagesTo(event)" required>
+                <input id="pages-from" type="number" name="pagesFrom" placeholder="Enter pages 'From'" required>
+                <input id="pages-to" type="number" name="pagesTo" placeholder="Enter pages 'To'" required>
             </div>
             <div class="buttons">
                 <button type="submit">Search</button>
